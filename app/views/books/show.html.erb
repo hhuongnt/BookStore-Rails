@@ -1,0 +1,40 @@
+<section class="recent-book-sec">
+  <div class="container">
+    <div class="row">
+      <% @book.photos.each do |photo| %>
+          <div class="col-lg-2 col-md-3 col-sm-4">
+              <div class="item">
+                <%= image_tag(photo.url, alt: 'img', style:'height:260px; width:170px') %>
+              </div>
+          </div>
+      <% end %>
+    </div>
+
+    <p>
+      <strong>Book:</strong>
+      <%= @book.name %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @book.description %>
+    </p>
+
+    <p>
+      <strong>Author:</strong>
+      <%= @book.author %>
+    </p>
+
+    <p>
+      <strong>Published on:</strong>
+      <%= @book.published_on %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= @book.price %>
+    </p>
+
+    <%= link_to 'Add to cart', books_path %> | <%= link_to 'Buy now', cart_index_path %>
+  </div>
+</section>

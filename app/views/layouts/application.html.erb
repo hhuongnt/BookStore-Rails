@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BookStore</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if notice.present? %>
+      <div class="alert alert-success"><%= notice %></div>
+    <% end %>
+    <% if alert.present? %>
+      <div class="alert alert-danger"><%= alert %></div>
+    <% end %>
+
+    <%= render 'shared/home_navbar' %>
+
+    <%= yield %>
+
+    <script src="https://use.fontawesome.com/81ceda7651.js"></script>
+  </body>
+</html>
