@@ -7,6 +7,10 @@
     gem install bundler
     bundle install
     ```
+- Install yarn:
+    ```
+    yarn install
+    ```
 - Init database:
     ```
     rake db:create
