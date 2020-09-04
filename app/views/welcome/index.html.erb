@@ -49,8 +49,8 @@
             <a href=<%= book_path(book.id) %>>
               <%= image_tag(book.photos.first.url, alt: 'img', style:'height:260px; width:170px') %>
             </a>
-            <h3><a href=<%= book_path(book.id) %>><%= book.name %></a></h3>
-            <h6><span class="price"><%= book.price %></span> / <a href=<%= shopping_carts_path %>>Buy Now</a></h6>
+            <h3><a href=<%= book_path(book.id) %>><%= book.name.titleize %></a></h3>
+            <h6><span class="price"><%= book.price %></span> / <a href=<%= cart_path %>>Buy Now</a></h6>
           </div>
         </div>
       <% end %>

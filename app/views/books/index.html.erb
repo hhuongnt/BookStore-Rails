@@ -7,7 +7,7 @@
                         <%= image_tag(book.photos.first.url, alt: 'img', style:'height:260px; width:170px') %>
                     </a>
                     <h3><a href=<%= book_path(book.id) %>>
-                        <%= book.name %>
+                        <%= book.name.titleize %>
                     </a></h3>
                     <h6><span class="price"><%= book.price %></span> / <a href=<%= book_path(book.id) %>>Buy Now</a></h6>
                 </div>

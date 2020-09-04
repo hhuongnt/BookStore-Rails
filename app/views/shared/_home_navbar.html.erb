@@ -31,9 +31,10 @@
                         <% end %>
                     </ul>
                     <div class="cart my-2 my-lg-0">
-                        <a href=<%= shopping_carts_path %>>
+                        <a href=<%= cart_path %>>
                             <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                            <span class="quantity"><%= @current_order.order_items.size %></span>
+                            <%# @current_order = current_order %>
+                            <%# <span class="quantity"><%= @current_order.order_items.size ></span> %>
                         </a>
                     </div>
                 </div>
@@ -43,7 +44,6 @@
     <div class="container">
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">
-            <span class="fa fa-search"></span>
         </form>
     </div>
 </header>
