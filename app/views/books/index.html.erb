@@ -4,7 +4,7 @@
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="item">
                     <a href=<%= book_path(book.id) %>>
-                        <%= image_tag(book.photos.first.url, alt: 'img', style:'height:260px; width:170px') %>
+                        <%= image_tag(book.photos.first.url(:thumb), alt: 'img') %>
                     </a>
                     <h3><a href=<%= book_path(book.id) %>>
                         <%= book.name.titleize %>

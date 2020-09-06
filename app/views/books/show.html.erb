@@ -4,7 +4,7 @@
       <% @book.photos.each do |photo| %>
           <div class="col-lg-2 col-md-3 col-sm-4">
               <div class="item">
-                <%= image_tag(photo.url, alt: 'img', style:'height:260px; width:170px') %>
+                <%= image_tag(photo.url(:thumb), alt: 'img') %>
               </div>
           </div>
       <% end %>

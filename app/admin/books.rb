@@ -4,7 +4,7 @@ ActiveAdmin.register Book do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description, :author, :published_on, :price, { photos: [] }
+  permit_params :name, :description, :author, :published_on, :price, { photos: [] }, :category_id
   #
   # or
   #
@@ -48,12 +48,14 @@ ActiveAdmin.register Book do
 
   form(html: { multipart: true }) do |f|
     f.inputs do
+      @categories = Category.all
       f.input :name
       f.input :description
       f.input :author
       f.input :published_on
-      f.input :price
+      f.input :price, min: 0
       f.file_field :photos, multiple: true, image_preview: true
+      f.collection_select :category_id, @categories, :id, :name, prompt: 'Select Category'
     end
     f.actions
   end
