@@ -1,12 +1,22 @@
 <div class="container">
   <h1>Products Cart</h1>
-  <% if @order_items.size == 0 %>
-  <p class="text-center">
-    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
-  </p>
-  <% else %>
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Books</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
     <% @order_items.each do |order_item| %>
-      <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
+    <tr>
+      <td><%= order_item.book.name %></td>
+      <td><%= order_item.quantity %></td>
+      <td><%= order_item.total_price %></td>
+    </tr>
     <% end %>
-  <% end %>
+  </tbody>
+</table>
 </div>
