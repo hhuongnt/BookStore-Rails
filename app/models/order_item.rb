@@ -6,6 +6,7 @@ class OrderItem < ApplicationRecord
   validates_presence_of :book, :order
 
   def unit_price
+    # byebug
     if persisted?
       self[:unit_price]
     else
@@ -14,7 +15,7 @@ class OrderItem < ApplicationRecord
   end
 
   def total_price
-    unit_price * quantity
+    book.price * quantity
   end
 
   private

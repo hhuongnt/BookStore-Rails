@@ -4,7 +4,7 @@ ActiveAdmin.register Book do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description, :author, :published_on, :price, { photos: [] }, :category_id
+  permit_params :name, :description, :author, :published_on, :price, { photos: [] }, :category_id, :quantity
   #
   # or
   #
@@ -20,8 +20,9 @@ ActiveAdmin.register Book do
     column :author
     column :published_on
     column :price
+    column :quantity
     column 'Photos' do |book|
-      image_tag(book.photos.first.url, style: 'height: 260px; width: 170px;')
+      image_tag(book.photos.first.url(:thumb))
     end
     actions
   end
@@ -33,12 +34,13 @@ ActiveAdmin.register Book do
       row :author
       row :published_on
       row :price
+      row :quantity
       row :created_at
       row :updated_at
       row :photos do |book|
         book.photos.each do |photo|
           span do
-            image_tag(photo.url, style: 'height: 260px; width: 170px;')
+            image_tag(photo.url(:thumb))
           end
         end
       end
@@ -54,6 +56,7 @@ ActiveAdmin.register Book do
       f.input :author
       f.input :published_on
       f.input :price, min: 0
+      f.input :quantity, min: 1
       f.file_field :photos, multiple: true, image_preview: true
       f.collection_select :category_id, @categories, :id, :name, prompt: 'Select Category'
     end

@@ -1,7 +1,11 @@
 class OrderItemsController < ApplicationController
   def create
+    # byebug
     @order = current_order
-    @order_item = @order.order_items.create(order_item_params)
+    @order_item = @order.order_items.new(order_item_params)
+    # @order_item.unit_price
+    # byebug
+    @order.save
     session[:order_id] = @order.id
   end
 

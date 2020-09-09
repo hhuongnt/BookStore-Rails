@@ -4,12 +4,22 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @books = params[:search].present? ? Book.search(params[:search]) : Book.all
+    @books = @books.all.page params[:page]
+    @order_item = current_order.order_items.new
+
+    respond_to do |format|
+      format.html
+      format.js { render layout: false }
+    end
   end
 
   # GET /books/1
   # GET /books/1.json
-  def show; end
+  def show
+    @counter = 0
+    @counter1 = 0
+  end
 
   # GET /books/new
   def new

@@ -10,8 +10,18 @@
                         <%= book.name.titleize %>
                     </a></h3>
                     <h6><span class="price"><%= book.price %></span> / <a href=<%= cart_path %>>Buy Now</a></h6>
+                    <%= form_for @order_item, remote: true do |f| %>
+                        <div class="input-group">
+                            <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+                            <div class="input-group-btn">
+                                <%= f.hidden_field :book_id, value: book.id %>
+                                <%= f.submit "Add to Cart", class:"btn btn-primary", id:"order_item_quantity" %>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
             </div>
         <% end %>
+        <%= paginate @books %>
     </div>
 </div>
