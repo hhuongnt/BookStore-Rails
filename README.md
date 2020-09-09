@@ -22,3 +22,7 @@
     bin/webpack-dev-server
     rails s
     ```
+- Admin account:
+    ```
+    admin@example.com / password
+    ```
