@@ -33,7 +33,7 @@
                     <div class="cart my-2 my-lg-0">
                         <a href=<%= cart_path %>>
                             <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                            <span class="quantity"><%= @current_order.order_items.pluck(:quantity).inject(:+) %></span>
+                            <span class="quantity"><%= @quantity %></span>
                         </a>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
   <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Books</th>
+      <th colspan="2">Books</th>
       <th>Quantity</th>
       <th>Price</th>
     </tr>
@@ -13,6 +13,7 @@
     <% @order_items.each do |order_item| %>
     <tr>
       <td><%= order_item.book.name %></td>
+      <td><%= image_tag(order_item.book.photos.first.url(:thumb)) %></td>
       <td><%= order_item.quantity %></td>
       <td><%= order_item.total_price %></td>
     </tr>

@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
+  before_action :prepare_quantity, only: %i[index show]
 
   # GET /books
   # GET /books.json
@@ -79,5 +80,9 @@ class BooksController < ApplicationController
   # Only allow a list of trusted parameters through.
   def book_params
     params.require(:book).permit(:name, :description, :author, :published_on, :price, { photos: [] })
+  end
+
+  def prepare_quantity
+    @quantity = current_order.order_items.pluck(:quantity).inject(:+) || 0
   end
 end
