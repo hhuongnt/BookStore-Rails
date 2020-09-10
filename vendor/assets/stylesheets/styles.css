@@ -955,8 +955,7 @@ header .cart {
   .product-sec .slider-sec {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 520px;
-    flex: 0 0 520px;
-    max-width: 520px; }
+    flex: 0 0 520px; }
   .product-sec .slider-content p {
     font-size: 16px;
     font-weight: 200;
@@ -1009,8 +1008,7 @@ header .cart {
 @media only screen and (max-width: 1024px) {
   .slider-content {
     -ms-flex: 0 0 450px;
-    flex: 0 0 450px;
-    max-width: 450px; }
+    flex: 0 0 450px; }
 
   .product-sec h1 {
     font-size: 28px; }

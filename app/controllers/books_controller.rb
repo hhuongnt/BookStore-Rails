@@ -1,13 +1,13 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
   before_action :prepare_quantity, only: %i[index show]
+  before_action :prepare_order_item, only: %i[index show]
 
   # GET /books
   # GET /books.json
   def index
     @books = params[:search].present? ? Book.search(params[:search]) : Book.all
     @books = @books.all.page params[:page]
-    @order_item = current_order.order_items.new
 
     respond_to do |format|
       format.html
@@ -84,5 +84,9 @@ class BooksController < ApplicationController
 
   def prepare_quantity
     @quantity = current_order.order_items.pluck(:quantity).inject(:+) || 0
+  end
+
+  def prepare_order_item
+    @order_item = current_order.order_items.new
   end
 end

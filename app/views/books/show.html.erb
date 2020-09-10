@@ -48,8 +48,20 @@
                         </li>
                     </ul>
                     <div class="btn-sec">
-                        <button class="btn ">Add To cart</button>
-                        <button class="btn black">Buy Now</button>
+                        <%= form_for @order_item, url: add_to_cart_order_items_path, remote: true do |f| %>
+                            <div class="input-group">
+                                <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+                                <%= f.hidden_field :book_id, value: @book.id %>
+                            </div>
+                            <%= f.submit "Add to cart", class:"btn btn-primary", id:"order_item_quantity" %>
+                        <% end %>
+                        <%= form_for @order_item, url: add_to_cart_order_items_path, remote: true do |f| %>
+                            <div class="input-group">
+                                <%= f.hidden_field :book_id, value: @book.id %>
+                                <%= f.hidden_field :quantity, value: 1 %>
+                                <%= f.submit "Buy now", class:"btn btn-primary", id:"order_item_quantity" %>
+                            </div>
+                        <% end %>
                     </div>
                 </div>
             </div>
