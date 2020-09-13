@@ -10,9 +10,9 @@ class Book < ApplicationRecord
   def self.search(search)
     category_id = Category.find_by('lower(name) = ?', search.downcase)
     @books = if category_id.present?
-               @books.where(category_id: category_id)
+               Book.where(category_id: category_id)
              else
-               @books.where('title LIKE ?', "%#{search}%")
+               Book.where('title LIKE ?', "%#{search}%")
              end
   end
 end
